@@ -1,3 +1,5 @@
+![random shape generator](https://user-images.githubusercontent.com/87150874/183478351-3e945c6a-d1cb-4a05-8130-d1f9bd37298c.png)
+
 # Random Shape Generator
 
 This is just an open source Random Shape Generator made with Flutter.
