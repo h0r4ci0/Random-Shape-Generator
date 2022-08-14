@@ -13,21 +13,31 @@ class _MyAppState extends State<MyApp> {
   double _height = 100.0;
   Color _color = Colors.blue;
   BorderRadius _borderRadius = BorderRadius.circular(10.0);
+  Color _textColor = Colors.black;
 
   void _changeContainer() {
     final random = Random();
 
     _width = random.nextInt(350).toDouble();
     _height = random.nextInt(350).toDouble();
-    _color = Color.fromRGBO(
-        random.nextInt(255), random.nextInt(255), random.nextInt(255), 1);
+
+    int _red = random.nextInt(255);
+    int _green = random.nextInt(255);
+    int _blue = random.nextInt(255);
+
+    _color = Color.fromRGBO(_red, _green, _blue, 1);
     _borderRadius = BorderRadius.circular(random.nextInt(20).toDouble());
     setState(() {});
+
+    if (_red + _green + _blue >= 520) {
+      _textColor = Colors.black;
+    } 
+
+    else {
+      _textColor = Colors.white;
+    }
   }
-
   @override
-  final random = Random();
-
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
@@ -35,6 +45,7 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         appBar: AppBar(
           title: Text('Animated Container'),
+          foregroundColor: _textColor,
           backgroundColor: _color,
         ),
         body: Column(
@@ -55,7 +66,8 @@ class _MyAppState extends State<MyApp> {
             ),
             RaisedButton(
               onPressed: _changeContainer,
-              child: Text("Generate a new shape"),
+              child: Text("GENERATE A NEW SHAPE"),
+              textColor: _textColor,
               color: _color,
             ),
             SizedBox(
