@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'themes/switch_theme.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,9 +10,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  double _width = 100.0;
-  double _height = 100.0;
-  Color _color = Colors.blue;
+  double _width = 300.0;
+  double _height = 300.0;
+  Color _color = Color.fromARGB(255, 251, 253, 138);
   BorderRadius _borderRadius = BorderRadius.circular(10.0);
   Color _textColor = Colors.black;
 
@@ -41,6 +42,9 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
+      themeMode: ThemeMode.system,
+      theme: MyThemes.lightTheme,
+      darkTheme: MyThemes.darkTheme,
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
